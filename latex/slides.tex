@@ -1,0 +1,1256 @@
+% \documentclass{beamer}
+\documentclass[handout]{beamer}
+
+\usepackage{beamerthemesplit}
+\usepackage[latin1]{inputenc}
+\usepackage[brazilian]{babel}
+\PassOptionsToPackage{pdftex}{graphicx}
+\usepackage{epstopdf}
+
+%cores
+%http://deic.uab.es/~iblanes/beamer_gallery/index_by_theme_and_color.html
+
+
+\usepackage{beamerthemeshadow}
+%\usepackage{graphicx} % Enable the use of graphs
+\usepackage{amsfonts} % Enable special mathemtical characters.
+\usepackage{amsmath}  % Enable the use  Multi-line equations, compound symbols, etc
+%\usepackage{extsizes} % Enable the use of different font sizes. DANDO PAU
+\usepackage{booktabs} % More complex tables
+\usepackage{hyperref} % Links
+\usepackage{subfig}   % Subfigures
+\usepackage{helvet}   % Different fonts
+% Need also to download pgf, ms and xcolor packages.
+%\usepackage[ansinew]{inputenc} % Permite digitar os acentos diretamente.
+%\usepackage[portuguese]{babel} % Habilita a língua portuguesa
+
+\usetheme{Berkeley} % Options: default, Antibes, Berkeley, Berlin, Copenhagen, Madrid, Pittsburgh, Singapore, etc.
+%\useinnertheme{default} % Options: default, circles, rectangles, rounded, inmargin,
+%\useoutertheme{default} % Options: default, infolines, miniframes, etc. Options []: footline=empty, footline=authorinstitute, footline=authortitle, footline=institutetitle, footline=authorinstitutetitle, subsection=.true or false.
+
+%\usecolortheme{default} % Options: default, beetle, albatross, crane, fly, wolverine, beaver, whale, etc.
+%\useinnertheme{orchid} % Inner Color Themes: lily, orchid, rose
+%\useoutertheme{dolphin} % Outer Color Themes: whale, seahorse, dolphin
+
+\setbeamersize{text margin left=0.6cm, text margin right=0.6cm}
+
+\setbeameroption{hide notes} % Use this option instead in presentations with projectors: show notes on second screen
+% to add notes, type: \note[item]<1>{Text}
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%
+\usepackage{listings}
+\usepackage{color}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\definecolor{bg}{rgb}{0.95,0.95,0.95}
+\lstset{ 
+  language=Octave,                % the language of the code
+  basicstyle=\footnotesize,       % the size of the fonts that are used for the code
+  numbers=left,                   % where to put the line-numbers
+  numberstyle=\tiny\color{gray},  % the style that is used for the line-numbers
+  stepnumber=1,                   % the step between two line-numbers. If it's 1, each line 
+                                  % will be numbered
+  numbersep=5pt,                  % how far the line-numbers are from the code
+  %backgroundcolor=\color{bg},     % choose the background color. You must add \usepackage{color}
+  showspaces=false,               % show spaces adding particular underscores
+  showstringspaces=false,         % underline spaces within strings
+  showtabs=false,                 % show tabs within strings adding particular underscores
+  frame=single,                   % adds a frame around the code
+  rulecolor=\color{black},        % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. commens (green here))
+  tabsize=4,                      % sets default tabsize to 2 spaces
+  captionpos=b,                   % sets the caption-position to bottom
+  breaklines=true,                % sets automatic line breaking
+  breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+  title=\lstname,                 % show the filename of files included with \lstinputlisting;
+                                  % also try caption instead of title
+  keywordstyle=\color{blue}, %blue     % keyword style
+  commentstyle=\color{dkgreen}, %dkgreen   % comment style
+  stringstyle=\color{mauve}, %mauve      % string literal style
+  escapeinside={\%*}{*)},         % if you want to add a comment within your code
+  morekeywords={*,...}            % if you want to add more keywords to the set
+}
+
+\usepackage{hyperref}
+\usepackage{ulem}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{document}
+
+\title{Minicurso Python}
+\author{Elias Luiz da Silva Júnior}
+% \date{Novembro de 2011}
+\date{}
+%\date{\today} 
+\institute{CEFET-MG}
+\logo{\includegraphics[scale=0.12]{images/_logoBRL}}
+
+\begin{frame}
+	\titlepage
+\end{frame}
+
+
+
+\section{Introdução}
+
+\begin{frame}\frametitle{O que é Python}
+	\begin{itemize}
+		\item Python é uma linguagem interpretada de propósito geral de alto nível.
+		\bigskip
+		\item Seu foco é na concisão e legibilidade do código.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{O que é Python}
+	\begin{lstlisting}[language=Python, caption={},label={}]
+print "Hello World"
+	\end{lstlisting}
+	\centerline{Python 2}
+	\bigskip \bigskip \bigskip \bigskip
+	\begin{lstlisting}[language=Python, caption={},label={}]
+print("Hello World")
+	\end{lstlisting}
+	\centerline{Python 3}
+\end{frame}
+
+\begin{frame}\frametitle{O que é Python}
+	\begin{itemize}
+		\item Multiparadigma:
+		\begin{itemize}
+			\item Estruturada;
+			\item Orientada a objetos;
+			\item Funcional.
+			\bigskip
+		\end{itemize}
+		\item Dinamicamente tipada;
+		\bigskip
+		\item Fortemente tipada;
+		\bigskip
+		\item Código livre.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{O que é Python}
+	Usado em diversas aplicações diferentes, como:
+	\begin{itemize}
+		\item Sites: Google, Youtube, Pinterest, DropBox, Reddit, Instagram, Spotify;
+		\item Criação de scripts: Linux, Blender, DICE (Battlefield 2), 2kGames (Civilization IV);
+		\item Computação científica: NASA, Los Alamos National Laboratory, National Weather Service.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{O que é Python}
+	Vantagens:
+	\bigskip
+	\begin{itemize}
+		\item Desenvolvimento rápido;
+		\bigskip
+		\item Grande repositório de módulos (bibliotecas);
+		\bigskip
+		\item Menos propenso a erros que outras linguagens semelhantes; *
+		\bigskip
+		\item Mais rápido que outras linguagens semelhantes. **
+	\end{itemize}
+	\bigskip \bigskip \bigskip	
+	\tiny{*Linguagens semelhantes: PHP, Ruby, Perl, Javascript.
+		
+		**Linguagens semelhantes: PHP, Ruby, Perl, Javascript (exceto V8 engine).}
+\end{frame}
+
+\begin{frame}\frametitle{O que é Python}
+	Módulos para finalidades diversas:
+	\begin{itemize}
+		\item aima-python: Algoritmos de inteligência artificial;
+		\smallskip
+		\item django: Framework de desenvolvimento Web MVC;
+		\smallskip
+		\item stochpy: Modelagem de processos estocásticos;
+		\smallskip
+		\item numpy: Cálculo numérico e matricial;
+		\smallskip
+		\item pycrypto: Algoritmos de criptografia.
+	\end{itemize}
+	\bigskip	
+	E outros 67958 pacotes listados no repositório PyPI.
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Comparação}
+	\begin{lstlisting}[language=C, caption={},label={}]
+int main()
+{
+	int i, vetor[10];
+	for(i = 0; i < 10; i++)
+	{
+		vetor[i] = i * 10;
+	}
+}
+	\end{lstlisting}
+	\centerline{C}
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Comparação}
+	\begin{lstlisting}[language=Java, caption={},label={}]
+public class Main{
+	public static void main(String[] args){
+		int[] vetor = new int[10];
+		for(int i = 0; i < 10; i++){
+			vetor[i] = i * 10;
+		}
+	}
+}
+	\end{lstlisting}
+	\centerline{Java}
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Comparação}
+	\begin{lstlisting}[language=PHP, caption={},label={}]
+<?php
+	$vetor = range(0, 90, 10);
+?>
+	\end{lstlisting}
+	\centerline{PHP}
+	\bigskip
+	\bigskip
+	\bigskip
+	\begin{lstlisting}[language=Python, caption={},label={}]
+vetor = range(0, 100, 10);
+	\end{lstlisting}
+	\centerline{Python}
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Comparação}
+	\begin{lstlisting}[language=PHP, caption={},label={}]
+if ($idade >= 18 && $idade < 70) {
+	echo "Voto obrigatorio"
+} elseif ($idade >= 16) {
+	echo "Voto facultativo"
+} else {
+	echo "Nao pode votar"
+}
+	\end{lstlisting}
+	\centerline{PHP}
+	\begin{lstlisting}[language=Python, caption={},label={}]
+if idade >= 18 and idade < 70:
+	print("Voto obrigatorio")
+elif idade >= 16:
+	print("Voto facultativo")
+else:
+	print("Nao pode votar")
+	\end{lstlisting}
+	\centerline{Python}
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Comparação}
+	\begin{lstlisting}[language=PHP, caption={},label={}]
+<?php
+$a = "String";
+for ($i = 1; $i <= strlen($a); $i++){
+	echo substr($a, 0, $i) . "<br>";
+}
+?>
+	\end{lstlisting}
+	\centerline{PHP}
+	\bigskip
+	\begin{lstlisting}[language=Python, caption={},label={}]
+a = "String"
+for i in range( len(a) + 1):
+	print( a[:i] )
+	\end{lstlisting}
+	\centerline{Python}
+\end{frame}
+
+
+
+
+\section{Conceitos básicos}
+
+\begin{frame}\frametitle{Identação}
+	O design Python tem como objetivo tornar a linguagem o mais legível	possível. 
+	Uma das maneiras de fazer isso é forçando a identação do código.
+	\bigskip
+	
+	Para isso, Python usa a identação do código para determinar os blocos
+	de execução.
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Identação}
+	\begin{lstlisting}[language=Python, caption={},label={}]
+if False:
+	print("Dentro do if")
+	print("Dentro do if")
+	
+if False:
+	print("Dentro do if")
+print("Fora do if")
+	
+if False:
+print("Fora do if")
+#Erro de compilação: bloco vazio
+	\end{lstlisting}
+	\centerline{Identação delimitando blocos}
+\end{frame}
+
+\begin{frame}\frametitle{Identação}
+	É importante manter a consistência no código.
+	\bigskip
+	
+	Por padrão são usados 4 espaços para marcar os blocos.
+	\bigskip
+	
+	Tabs podem ser usados desde que não misturados com espaços.
+	Se utilizado, o ideal é configurar o editor para substituir tabs por espaços.
+\end{frame}
+
+\begin{frame}\frametitle{Variáveis e Tipos}
+	Python é uma linguagem dinamicamente tipada.
+	
+	Isso quer dizer que o tipo da variável é determinado pelo valor
+	a ela atribuído e pode mudar em tempo de execução.
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Variáveis e Tipos}
+	\begin{lstlisting}[language=Python, caption={},label={}]
+a = 1 #tipo int
+	
+a = 3.2	#tipo float
+	
+a = "abc" #tipo string
+	
+a = [] #tipo list
+	\end{lstlisting}
+	\centerline{Tipagem dinâmica}
+\end{frame}
+
+\begin{frame}\frametitle{Variáveis e Tipos}
+	Python é fortemente tipado.
+	
+	Isso quer dizer que o tipo da variável determina quais operações
+	ela pode realizar e com quais tipos.
+	
+	Para converter entre tipos (exceto \textit{int} e \textit{float}) é necessário
+	explicitar o \textit{casting}. Esse decisão de design foi tomada para
+	reduzir erros e evitar certos comportamentos inesperados.
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Variáveis e Tipos}
+	\begin{lstlisting}[language=Python, caption={},label={}]
+a = 1 #int
+	
+a = a + 2 #permaneçe int
+	
+a = a + 2.1 #casting para float
+	
+a = a + "a" #casting implícito para string
+#TypeError
+	
+a = str(a) + "a" #casting explícito para string
+	\end{lstlisting}
+	\centerline{Tipagem forte}
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Variáveis e Tipos}
+	\begin{lstlisting}[language=Java, caption={},label={}]	
+var vetor = [];
+	
+alert(vetor == false); //verdadeiro
+
+if (vetor)
+alert('entrou no if'); //executa alert
+	
+'' == '0' //falso
+0 == ''   //verdadeiro
+0 == '0'  //verdadeiro
+	
+'\n\r\t' == 0 //verdadeiro
+	\end{lstlisting}
+	\centerline{Tipagem fraca em Javascript}
+\end{frame}
+
+
+
+\section{Estruturas de controle}
+
+\begin{frame}\frametitle{Estruturas condicionais}
+	As estruturas condicionais em Python se comportam como na maioria das outras linguagens
+	\bigskip
+	
+	\begin{itemize}
+		\item Não há necessidade de parentêses na condição;
+		\item Operadores lógicos escritos em vez de símbolos:
+		\begin{itemize}
+			\item ``and'' equivale a ``\&\&'';
+			\item ``or'' equivale a ``$\mid \mid$'';
+			\item ``not'' equivale a ``!'';
+		\end{itemize}
+		\item Comparadores são iguais:	
+		$<, < =, >, > =, ==, != $ .
+	\end{itemize}
+\end{frame}
+	
+\begin{frame}[fragile]\frametitle{Estruturas condicionais}
+	\begin{lstlisting}[language=Python, caption={},label={}]
+idade = 21
+	
+if idade >= 18:
+	if idade >= 70:
+		print("Voto facultativo")
+	else:
+		print("Voto obrigatorio")
+elif not idade < 16:
+	print("Voto facultativo")
+else:
+	print("Nao pode votar")
+	\end{lstlisting}
+	\centerline{Estrutura condicional}
+\end{frame}
+
+\begin{frame}\frametitle{Laço while}
+	O laço de repetição ``enquanto'' em Python também se comporta como na maioria das outras linguagens.
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Laço while}
+	\begin{lstlisting}[language=Python, caption={},label={}]
+contador = 0
+
+while contador < 10:
+	contador += 1
+	print(contador)
+	\end{lstlisting}
+	\centerline{Estrutura enquanto}
+\end{frame}
+
+\begin{frame}\frametitle{Laço for}
+	O laço de repetição ``para'' em Python se comporta como o
+	laço \textit{foreach}.
+	\bigskip
+	
+	O operador \textit{in} é utilizado para selecionar cada elemento
+	em um iterável. Também pode ser usado para saber se um elemento está
+	dentro de uma estrutura.
+	\bigskip
+	
+	Para se iterar por numéros usamos a função \textit{range}, que
+	retorna um iterável contendo uma sequência de números.
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Laço for}
+	\begin{lstlisting}[language=Python, caption={},label={}]
+for i in range(0,10):
+	print(i)
+	\end{lstlisting}
+	em Python é equivalente a
+	\bigskip
+	
+	\begin{lstlisting}[language=Java, caption={},label={}]
+for(int i = 0; i < 10; i++){
+	System.out.println(i);
+}
+	\end{lstlisting}
+	em Java.
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Laço for}
+	\begin{lstlisting}[language=Python, caption={},label={}]
+#explicitando o incremento para a funcao range
+for i in range(0,10,2):
+	print(i)
+	\end{lstlisting}
+	em Python é equivalente a
+	\bigskip
+	
+	\begin{lstlisting}[language=Java, caption={},label={}]
+for(int i = 0; i < 10; i+=2){
+	System.out.println(i);
+}
+	\end{lstlisting}
+	em Java.
+\end{frame}
+
+\begin{frame}\frametitle{Laço for}
+	Essa mesma maneira de usar se aplica para qualquer
+	estrutura que seja iterável:
+	\begin{itemize}
+		\item Strings;
+		\item Tuplas;
+		\item Listas;
+		\item Dicionários.
+	\end{itemize}
+	E com algumas adaptações objetos também.
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Laço for}
+	\begin{lstlisting}[language=Python, caption={},label={}]
+lista = [1,2,3,4,5]
+	
+for i in lista:
+	print(i)
+	\end{lstlisting}
+	\centerline{Laço for}
+\end{frame}
+
+\begin{frame}\frametitle{Laço for}
+	Os elementos armazenados na variável pelo comando \textit{in}
+	não alteram a posição do iterável.
+	\bigskip
+	
+	Para isso pode se usar a função \textit{range} em conjunto com
+	a função \textit{len}, que retorna o tamanho da estrutura.
+	\bigskip
+	
+	Pode se também utilizar a função \textit{enumerate}, que retorna
+	o índice da iteração e o elemento.
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Laço for}
+	\begin{lstlisting}[language=Python, caption={},label={}]
+lista = [1,2,3,4,5]
+
+for i in range(len(lista)):
+	lista[i] += 1
+
+for indice, elemento in enumerate(lista):
+	print("Posicao", indice,  "=", elemento)
+	\end{lstlisting}
+	\centerline{Laço for}
+\end{frame}
+
+\begin{frame}\frametitle{Laço for}
+	Para funções como \textit{enumerate} que retornam mais de um valor
+	pode se usar \space\underline{\space\space\space}\space\space (underline) para não associar esse valor a nenhuma variável.
+	\bigskip
+	
+	Isso é uma boa prática para quando um ou mais dos valores retornados
+	não será utilizado, evitando criar variáveis inúteis.
+	
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Laço for}
+	\begin{lstlisting}[language=Python, caption={},label={}]
+lista = [1,2,3,4,5]
+	
+for i in range(len(lista)):
+	print(lista[i])
+	\end{lstlisting}
+	\bigskip
+	
+	é equivalente a
+	\bigskip
+	
+	\begin{lstlisting}[language=Python, caption={},label={}]
+lista = [1,2,3,4,5]
+	
+for i, _ in enumerate(lista):
+	print(lista[i])
+	\end{lstlisting}
+\end{frame}
+
+\begin{frame}\frametitle{Blocos try e except}
+	Muitas funções lançam excessões quando não se comportam da maneira esperada. Quando se executa funções desse tipo é 
+	recomendado chamá-las dentro de um bloco \textit{try}.
+	\bigskip
+	
+	Para detectar excessões lançadas com o comando \textit{raise} colocamos logo após o bloco \textit{try}
+	um bloco \textit{except}, que será executado assim que
+	o erro que ele especifica for lançado no bloco \textit{try}.
+	
+	Caso deseje que algum código execute sendo ou não sendo lançada uma excessão esse código deve ficar dentro de um
+	bloco \textit{finally}.
+	
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Blocos try e except}
+	\begin{lstlisting}[language=Python, caption={},label={}]
+try:
+	print(10 / 0)
+except ZeroDivisionError:
+	print("ops...")
+
+try:
+	raise Exception('Deu errado')
+except Exception as e:
+	print(e)
+finally:
+	print("Exemplo de bloco try-except")
+	\end{lstlisting}
+	\centerline{Blocos try e except}
+\end{frame}
+
+
+
+\section{Estruturas de dados}
+
+\begin{frame}\frametitle{Strings}
+	Strings são objetos que armazenam texto.
+	\bigskip
+	
+	Se comportam como uma sequência de caracteres que podem
+	ser percorridos por um laço.
+	\bigskip
+	
+	Por ser um objeto possui alguns métodos para facilitar sua manipulação.
+\end{frame}
+
+\begin{frame}\frametitle{Strings}
+	Alguns métodos de string:
+	\begin{itemize}
+		\item string.lower(): retorna a string em letras minúsculas;
+		\item string.upper(): retorna a string em letras maiúsculas;
+		\item string.find(s): retorna a primeira aparição de s na string;
+		\item string.split(s): retorna uma lista de strings resiltante da divisão da string em cada ocorrência de s;
+		\item string.replace(s, x): substitui as ocorrências de s em string por x;
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Strings}
+	\begin{lstlisting}[language=Python, caption={},label={}]
+a = "Minha String"
+
+print(a.lower())
+
+print(a.upper())
+
+print(a.find('String'))
+
+print(a.split(' '))
+
+print(a.replace('Minha', 'Outra'))
+
+print(a[:5])
+	\end{lstlisting}
+	\centerline{Strings}
+\end{frame}
+
+\begin{frame}\frametitle{Strings}
+	Strings podem ser geradas através do método \textit{format}.
+	\bigskip
+	
+	Usa se uma string como ``molde'', colocando \{\} no lugar
+	que deseja substituir o respectivo parâmetro.
+	\bigskip
+	
+	Também podem ser usados números para indicar qual o número do parâmetro
+	a ser substituído naquela posição.
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Strings}
+	\begin{lstlisting}[language=Python, caption={},label={}]
+molde = "{} eh uma linguagem {}"
+print(molde.format('Python', 'facil'))
+
+molde = "{0} eh uma linguagem {1}mente {1}"
+print(molde.format('Python', 'facil'))
+
+molde = "{a[0]} eh uma linguagem {a[1]}mente {a[1]}"
+print(molde.format(a = ('Python', 'facil')))
+	\end{lstlisting}
+	\centerline{Método format de String}
+\end{frame}
+
+\begin{frame}\frametitle{Tuplas}
+	Tuplas são uma estrutura de dados que se comporta como um
+	vetor. A diferença é que elas são imutáveis.
+	\bigskip
+	
+	Normalmente são usadas para ``empacotar'' dados com alguma relação
+	ou para garantir que os dados não serão alterados.	
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Tuplas}
+	\begin{lstlisting}[language=Python, caption={},label={}]
+a = ('um', 1)
+b = ('dois', 2)
+
+c = (a, b)
+
+print(c)
+
+for i, j in c:
+	print(i, '=', js)
+	\end{lstlisting}
+	\centerline{Tuplas}
+\end{frame}
+
+\begin{frame}\frametitle{Listas}
+	Listas são uma estrutura de dados que armazenam uma sequência de valores. Diferentemente das tuplas, listas podem ser alteradas.
+	\bigskip
+	
+	Substitui boa parte das estruturas de outras linguagens, podendo ser
+	usada como vetor, lista, fila e pilha.
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Listas}
+	\begin{lstlisting}[language=Python, caption={},label={}]
+a = [0,1,2,3]
+
+#adicionando um elemento
+a.append(4)
+
+#concatenando com outra lista
+a = a + [5, 6]
+
+print(a)
+	\end{lstlisting}
+	\centerline{Listas}
+\end{frame}
+
+\begin{frame}\frametitle{Listas}
+	Para se selecionar posições de uma lista, tupla ou string são utilizados colchetes.
+	\bigskip
+	
+	Para selecionar mais de uma posição, são passados parâmetros separados
+	por ``:''. O primeiro parâmetro determina a primeira posição a ser retornada,
+	o segundo parâmetro determina qual posição servirá como parada e o terceiro 
+	qual passo para escolher as posições.
+	\bigskip
+	
+	Os parâmetros podem ser omitidos, assumindo então seus valores padrão. 
+	Para o primeiro é a primeira posição da lista, para o segundo é a última
+	e para o terceiro é 1.
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Listas}
+	\begin{lstlisting}[language=Python, caption={},label={}]
+a = list(range(0,10))
+
+#exibindo da posicao 2 a 5
+print(a[2:6])
+
+#exibindo os primeiros 5 elementos
+print(a[:5])
+
+#exibindo da posicao 5 para frente
+print(a[5:])
+
+#exibindo as posicoes pares
+print(a[::2])
+
+#exibindo de trás para frente
+print(a[::-1])
+	\end{lstlisting}
+	\centerline{Sublistas}
+\end{frame}
+
+\begin{frame}\frametitle{Listas}
+	Alguns métodos de lista:
+	\begin{itemize}
+		\item lista.append(x): insere x ao fim da lista;
+		\item lista.insert(i, x): insere x na posição i;
+		\item lista.remove(x): remove o elemento x da lista;
+		\item lista.pop(): remove o último elemento da lista;
+		\item lista.pop(i): remove elemento na posição i;
+		\item lista.index(x): retorna a posição do elemento x;
+	\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Dicionários}
+	Dicionários são uma das estruturas de dados básicas de Python,
+	juntamente às tuplas e listas.
+	\bigskip
+	
+	Dicionários são tabelas hash dinâmicas, ou seja, são como listas
+	mas os elementos não são identificados por sua posição, mas sim por uma
+	``chave''. Essa chave pode ser um valor de qualquer tipo básico.
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Dicionários}
+	\begin{lstlisting}[language=Python, caption={},label={}]
+#criando um dicionario
+constantes = {
+	'pi' : 3.14159,
+	'e' : 2.71828
+}
+
+#exibindo os valores salvos
+print(constantes['pi'])
+print(constantes['e'])
+
+#exibindo o dicionario completo
+print(constantes)
+
+#adicionando um valor
+constantes['phi'] = 1.61803
+print(constantes['phi'])
+	\end{lstlisting}
+	\centerline{Dicionários}
+\end{frame}
+
+\begin{frame}\frametitle{Dicionários}
+	Dicionários são iteráveis, o que quer dizer que podem ser percorridos
+	com um laço \textit{for}.
+	\bigskip
+	
+	A função equivalente a \textit{enumerate} para dicionários é a função
+	\textit{items}, que é um método do objeto dicionário.
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Dicionários}
+	\begin{lstlisting}[language=Python, caption={},label={}]
+constantes = {
+	'pi' : 3.14159,
+	'e' : 2.71828,
+	'phi' : 1.61803
+}
+
+print('Constantes disponíveis: ')
+for chave in constantes:
+	print(chave, end = ' ')
+
+print('\n\nValores das constantes:')
+for chave, valor in constantes.items():
+	print(chave, "=", valor)
+	\end{lstlisting}
+	\centerline{Dicionários}
+\end{frame}
+
+
+
+\section{Funções e Classes}
+
+\begin{frame}\frametitle{Funções e parâmetros}
+	Funções em Python são criadas com a palavra-chave \textit{def}.
+	\bigskip
+	
+	Por ser uma linguagem dinamicamente tipada, as funções em Python não
+	precisam especificar o tipo de retorno.
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Funções e parâmetros}
+	\begin{lstlisting}[language=Python, caption={},label={}]
+def HelloWorld():
+	print("Hello World!")
+
+HelloWorld()
+
+def AoQuadrado(a):
+	return a ** 2
+
+print(AoQuadrado(2))
+	\end{lstlisting}
+	\centerline{Funções}
+\end{frame}
+
+\begin{frame}\frametitle{Funções e parâmetros}
+	Python não permite a sobrecarga de funções.
+	\bigskip
+	
+	Porém ele permite a definição de um valor padrão para um parâmetro
+	e a passagem de parâmetros fora de ordem.
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Funções e parâmetros}
+	\begin{lstlisting}[language=Python, caption={},label={}]
+def Range(inicio = 0, fim = 10, passo = 1):
+	return list(range(inicio, fim, passo))
+
+print(Range(1, 5))
+print(Range(2))
+print(Range())
+print(Range(passo = 2))
+print(Range(passo = 3, fim = 20))
+print(Range(passo = 3, fim = 20, inicio = 1))
+	\end{lstlisting}
+	\centerline{Parâmetros}
+\end{frame}
+
+\begin{frame}\frametitle{Funções e parâmetros}
+	Funções podem retornar mais de um valor, desde eles estejam separados
+	por vírgula.
+	\bigskip
+	
+	O que acontece realmente é que a função retorna uma tupla com
+	os valores e depois os atribui às respectivas variàveis.
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Funções e parâmetros}
+	\begin{lstlisting}[language=Python, caption={},label={}]
+def RaizQuadradaCubica(valor):
+	return valor ** (1/2), valor ** (1/3)
+
+print(RaizQuadradaCubica(64))
+
+a, b = RaizQuadradaCubica(64)
+print(a, b)
+
+_,  raiz = RaizQuadradaCubica(64)
+print(raiz)
+
+#seguindo a mesma ideia
+a = 1
+b = 2
+a, b = b, a
+print(a, b)                   
+	\end{lstlisting}
+	\centerline{Retorno múltiplo}
+\end{frame}
+
+\begin{frame}\frametitle{Classes}
+	Python é uma linguagem orientada a objetos, tratando tudo como objetos
+	assim como outras linguagens como Java, a diferença é que esse tratamento
+	nem sempre é visível para o programador, permitindo programação estruturada
+	e funcional.
+	\bigskip
+	
+	Classes são criadas com a palavra-chave \textit{class} e possuem como construtor
+	o método \textit{\_\_init\_\_}.
+\end{frame}
+
+\begin{frame}\frametitle{Classes}
+	A muitos conceitos de orientação a objetos se aplicam aqui, mas há algumas notáveis diferenças.
+	\bigskip
+	
+	Python não permite a criação de atributos ou métodos privados por acreditar que o
+	programador deve ter controle total do programa. Isso pode ser contornado de forma
+	extra-oficial em alguns interpretadores colocando 2 underlines antes do nome do membro.
+	\bigskip
+	
+	Outra diferença é que todos os métodos são estáticos, recebendo como primeiro parâmetro
+	uma referência para o objeto que fez a chamada.
+	\end{frame}
+
+\begin{frame}[fragile]\frametitle{Classes}
+	\begin{lstlisting}[language=Python, caption={},label={}]
+class Funcionario:
+	#contador estatico de funcionarios
+	contador = 1
+	
+	#construtor
+	def __init__(self, nome, salario):
+	
+		#self eh o nome padrao para o objeto que realizou a chamada
+		#equivalente ao 'this' de outras linguagens
+		#nota: pode ter outro nome, self eh somente um padrao
+		self.nome = nome
+		self.salario = salario
+		self.id = Funcionario.contador
+		Funcionario.contador += 1
+	               
+	\end{lstlisting}
+	\centerline{Classes parte 1}
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Classes}
+	\begin{lstlisting}[language=Python, caption={},label={}]
+	 #define como o objeto deve ser exibido se convertido para string
+	 def __str__(self):
+		 return "Funcionario {}\nNome: {}\nSalario: R${:.2f}".format(self.id, self.nome, self.salario)
+	 
+funcionarios = {}
+funcionarios['Jose'] = Funcionario('Jose da Silva', 2000)
+funcionarios['Maria'] = Funcionario('Maria da Silva', 2000)
+
+for _, i in funcionarios.items():
+	print(i)
+	\end{lstlisting}
+	\centerline{Classes parte 2}
+\end{frame}
+
+\begin{frame}\frametitle{Classes}
+	Python possui um coletor de lixo para excluir da memória os
+	objetos que não estão sendo usados.
+	\bigskip
+	
+	Para forçar a exclusão de um objeto da memória utiliza-se o comando ``\textit{del} objeto''.
+	\bigskip
+	
+	Para determinar o comportamento de um objeto ao ser removido da memória (ex: salvar um arquivo) o método \textit{\_\_del\_\_(self)} deve ser implementado.
+\end{frame}
+
+\begin{frame}\frametitle{Classes}
+	Herança em Python se comporta como esperado na maioria das outras
+	linguagens.
+	\bigskip
+	
+	Diferente de algumas linguagens como Java e PHP, Python permite herança
+	múltipla, não somente de interfaces mas também de classes completas,
+	de forma parecida com C++.
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Classes}
+	\begin{lstlisting}[language=Python, caption={},label={}]
+class Pai:
+	def Print(self):
+		print('classe pai')
+class Filho(Pai):
+	def Print(self):
+		print('classe filho')
+class Filho2(Pai):
+	#declarado mas nao implementado
+	pass
+	
+a = Pai()
+a.Print()
+b = Filho()
+b.Print()
+c = Filho2()
+c.Print()
+	\end{lstlisting}
+	\centerline{Herança}
+\end{frame}
+
+\begin{frame}\frametitle{Classes}
+	Por permitir herança multipla e duck typing* Python não
+	define uma maneira de se trabalhar com classes abstratas
+	e interfaces.
+	\bigskip
+	
+	*Duck typing: Objetos de classes diferentes podem ocupar
+	uma mesma estrutura de dados e receber chamadas iguais.
+	
+	Ex: Se uma lista \textit{cachorros} contém objetos das classes \textit{Labrador}
+	e \textit{ViraLata}, não é necessário que ambas compartilhem uma interface
+	\textit{Cachorro} para que eu possa chamar o método \textit{cachorros[i].late()}.
+\end{frame}
+
+\begin{frame}\frametitle{Módulos}
+	Bibliotecas em Python são chamadas de módulos ou pacotes, que são basicamente
+	classes que abstraem um ou mais arquivos que podem possuir uma ou mais classes.
+	\bigskip
+	
+	Para se incluir um módulo em um programa é usada a palavra-chave 
+	\textit{import}. 
+	\bigskip
+	
+	Para se incluir apenas parte do módulo, como uma classe
+	se usa ``\textit{from} módulo \textit{import} classe''.
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Módulos}
+	\begin{lstlisting}[language=Python, caption={},label={}]
+from MeuModulo import Funcionario
+	
+joao = Funcionario('Joao da Silva', 2000)
+print(joao)	
+	\end{lstlisting}
+	\centerline{Módulos}
+\end{frame}
+
+
+
+\section{Avançado}
+
+\begin{frame}\frametitle{Entrada e Saída}
+	Entrada e saída de dados podem ser feitas de várias formas como:
+	\begin{itemize}
+		\item Dispositivos de IO;
+		\item Arquivos;
+		\item Bancos de dados;
+		\item Dispositivos de rede;
+		\item ...
+	\end{itemize}
+	\bigskip
+	
+	Para escrever no dispositivo de saída padrão (monitor) utilizamos a função \textit{print}.
+	
+	Para ler do mesmo usamos a função \textit{input}.
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Entrada e Saída}
+	\begin{lstlisting}[language=Python, caption={},label={}]
+valor = input("Digite alguma coisa: ")
+print("Voce digitou: {}".format(valor))
+	\end{lstlisting}
+	\centerline{Entrada e saída padrão}
+\end{frame}
+
+\begin{frame}\frametitle{Entrada e Saída}
+	Arquivos do sistema podem ser abertos utilizando a funcao \textit{open}.
+	
+	Essa função recebe o nome do arquivo e o modo de acesso (r = leitura, w = escrita, ...).
+	\bigskip
+	
+	A escrita no arquivo é feita através do método \textit{arquivo.write}.
+	\bigskip
+	
+	Para ler do arquivo usamos o metodo \textit{arquivo.read}.
+	\bigskip
+	
+	Ao fim do uso do arquivo, deve ser chamado o método \textit{arquivo.close}.
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Entrada e Saída}
+	\begin{lstlisting}[language=Python, caption={},label={}]
+arquivo = open("22 - teclado.py", "r")
+
+#executa um laco for por todas as linhas do arquivo
+for i in arquivo.readlines():
+	print(i)
+	
+arquivo.close()
+	\end{lstlisting}
+	\centerline{Entrada e saída padrão}
+\end{frame}
+
+\begin{frame}\frametitle{Threads}
+	Python possui um módulo para criacao de \textit{threads} chamado \textit{threading}.
+	\bigskip
+	
+	\textit{Threads} podem ser criadas para executar uma função em paralelo
+	ou podem ser uma classe com um método iniciando a execução.
+	\bigskip
+	
+	Para executar uma função em uma \textit{thread}, criamos um objeto do tipo
+	\textit{Thread} com os parâmetros \textit{target} recebendo a função e \textit{args} recebendo
+	uma tupla contendo os parâmetros da função.
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Threads}
+	\begin{lstlisting}[language=Python, caption={},label={}]
+from threading import *
+import time as t
+def f(nome, atraso):
+	for i in range(4):
+		t.sleep(atraso) #para a thread por 1 segundo
+		#imprime o tempo atual
+		print(nome + ":" + t.ctime(t.time()) + "\n", end = "")
+#inicia uma nova thread que executa a funcao 'f' com parametros "Thread 1"
+t1 = Thread(target=f, args=("Thread 1", 1))
+t2 = Thread(target=f, args=("Thread 2", 2))
+t1.start()
+t2.start()
+t1.join() #aguarda as threads terminarem de executar
+t2.join()
+	\end{lstlisting}
+	\centerline{Função em thread}
+\end{frame}
+
+\begin{frame}\frametitle{Threads}
+	Para executar uma classe em uma \textit{thread}, herdamos da classe 
+	\textit{Thread} implementando o método \textit{run},  que será chamado
+	quando a \textit{thread} for iniciada.
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Threads}
+	\begin{lstlisting}[language=Python, caption={},label={}]
+from threading import *
+import time as t
+
+class MinhaThread(Thread):
+	def __init__(self, nome, atraso):
+		Thread.__init__(self) #chamando o construtor da super-classe
+		self.nome = nome
+		self.atraso = atraso
+		def run(self):
+		for i in range(4):
+		t.sleep(self.atraso)
+		print(self.nome, ":", t.ctime(t.time()), "\n", end = "")
+
+t1 = MinhaThread("Thread 1", 1)
+t1.start()
+t1.join()
+	\end{lstlisting}
+	\centerline{Classe em thread}
+\end{frame}
+
+\begin{frame}\frametitle{Threads}
+	No pacote \textit{threading} existem ainda outras classes e funções,
+	como as classes \textit{Lock} e \textit{Semaphore}, usadas para
+	fazer o sincronismo entre \textit{threads}.
+	\bigskip
+	
+	Como o objetivo deste curso é somente apresentar conceitos gerais
+	da linguagem não nos aprofundaremos nisso.
+\end{frame}
+
+\begin{frame}\frametitle{Expressões Regulares}
+	Expressões regulares são ferramentas muito úteis para manipulação
+	de texto, já que elas permitem definir um padrão para uma entrada
+	e responder se ela segue ou não esse padrão. Também são úteis para
+	encontrar determinados padrões em entradas grandes.
+	\bigskip
+	
+	Em Python o módulo que contém as funções para trabalhar com expressões
+	regulares se chama \textit{re}.
+\end{frame}
+
+\begin{frame}\frametitle{Expressões Regulares}
+	Os dois métodos principais para usar expressões regulares são \textit{match}
+	e \textit{search}.
+	\bigskip
+	
+	A função \textit{match} checa se a string inteira segue o padrão determinado pela
+	expressão. Apesar de não ser um booleano, pode ser usado em if's.
+	\bigskip
+	
+	Já a função \textit{search} procura na string por trechos que sigam o padrão dado
+	na expressão.
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Expressões Regulares}
+	\begin{lstlisting}[language=Python, caption={},label={}]
+import re
+texto = """Meu telefone
+e 8888-8888"""
+padrao = "[0-9]{4}-[0-9]{4}"
+#Flag re.M permite conferir em strings multilinha
+#Flag re.I torna a busca insensível a case (nesse caso nao precisa)
+resultado = re.match(padrao, texto, re.M|re.I)
+if(resultado):
+	print("Segue o padrao")
+else:
+	print("Nao segue o padrao")
+resultado = re.search(padrao, texto, re.M|re.I)
+if(resultado):
+	print("Padrao encontrado:", resultado.group())
+else:
+	print("Padrao nao encontrado")
+	\end{lstlisting}
+	\centerline{Expressões Regulares}
+\end{frame}
+
+\begin{frame}\frametitle{Expressões Regulares}
+	Caso uma expressão regular seja usada mais de uma vez é mais eficiente
+	compilá-la e chamar os métodos do objeto resultante.
+	\bigskip
+	
+	Para compilar um padrão, chame a função \textit{re.compile} passando
+	como parâmetro a expressão regular. O valor de retorno é um objeto
+	que contém as funções de teste (\textit{match, search, ...}).
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Expressões Regulares}
+	\begin{lstlisting}[language=Python, caption={},label={}]
+import re
+texto = """Meu telefone
+e 8888-8888"""
+padrao = re.compile("[0-9]{4}-[0-9]{4}")
+resultado = padrao.match(texto, re.M|re.I)
+if(resultado):
+	print("Segue o padrao")
+else:
+	print("Nao segue o padrao")
+resultado = padrao.search(texto, re.M|re.I)
+if(resultado):
+	print("Padrao encontrado:", resultado.group())
+else:
+	print("Padrao nao encontrado")
+	\end{lstlisting}
+	\centerline{Expressões Regulares}
+\end{frame}
+
+\end{document}
